@@ -96,7 +96,7 @@ public class MainActivityValues extends AppCompatActivity {
 
         FirebaseUser mAuth = FirebaseAuth.getInstance().getCurrentUser();
         if (mAuth == null) {
-            Intent intent = new Intent(MainActivityValues.this, MainActivityLogin.class);
+            Intent intent = new Intent(MainActivityValues.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();

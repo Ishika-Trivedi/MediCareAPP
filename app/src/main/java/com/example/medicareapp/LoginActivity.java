@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivityLogin extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.emailEditText) EditText emailEditText;
     @BindView(R.id.passwordEditText) EditText passwordEditText;
@@ -36,13 +36,13 @@ public class MainActivityLogin extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         clickRegister.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivityLogin.this, MainActivityRegister.class));
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             finish();
         });
 
         loginButton.setOnClickListener(view -> {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            View focusedView = MainActivityLogin.this.getCurrentFocus();
+            View focusedView = LoginActivity.this.getCurrentFocus();
             if (focusedView != null) {
                 imm.hideSoftInputFromWindow(focusedView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             }
@@ -56,7 +56,7 @@ public class MainActivityLogin extends AppCompatActivity {
                 loginProgressBar.setVisibility(View.VISIBLE);
                 mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        startActivity(new Intent(MainActivityLogin.this, MainActivityValues.class));
+                        startActivity(new Intent(LoginActivity.this, MainActivityValues.class));
                         finish();
                     } else {
                         Snackbar.make(view, "There was an error. Please try again!", Snackbar.LENGTH_LONG).show();
