@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="registrationID" type="id"></item>
+    <item name="emailREditText" type="id"></item>
+    <item name="passwordREditText" type="id"></item>
+    <item name="confirmPassEditText" type="id"></item>
+    <item name="registerBtn" type="id"></item>
+    <item name="regProgressBar" type="id"></item>
+</resources>
