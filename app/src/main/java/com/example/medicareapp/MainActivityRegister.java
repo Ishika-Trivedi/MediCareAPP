@@ -26,13 +26,6 @@ import butterknife.ButterKnife;
 
 public class MainActivityRegister extends AppCompatActivity {
 
-    public void Login(View view){
-        Intent intent =  new Intent(getApplicationContext(), MainActivityLogin.class);
-
-        startActivity(intent);
-    }
-
-
     @BindView(R.id.userName) EditText userName;
     @BindView(R.id.registrationID) EditText registrationID;
     @BindView(R.id.emailREditText) EditText emailREditText;
@@ -101,7 +94,7 @@ public class MainActivityRegister extends AppCompatActivity {
             if (task.isSuccessful()) {
                 startActivity(new Intent(MainActivityRegister.this, MainActivityValues.class));
                 finish();
-            }else{
+            } else {
                 regProgressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(MainActivityRegister.this, "Registration failed. Try again", Toast.LENGTH_LONG).show();
                 Log.e("Error: Register", "Error while adding data to database\n" + task.getException());

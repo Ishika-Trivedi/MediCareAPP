@@ -20,13 +20,6 @@ import butterknife.ButterKnife;
 
 public class MainActivityLogin extends AppCompatActivity {
 
-    public void Register(View view){
-           Intent intent = new Intent(getApplicationContext(), MainActivityRegister.class);
-
-           startActivity(intent);
-
-    }
-
     @BindView(R.id.emailEditText) EditText emailEditText;
     @BindView(R.id.passwordEditText) EditText passwordEditText;
     @BindView(R.id.loginButton) Button loginButton;
@@ -72,7 +65,6 @@ public class MainActivityLogin extends AppCompatActivity {
                     }
                 });
             }
-
-            });
+        });
     }
 }

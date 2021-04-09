@@ -7,19 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.File;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivityValues extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    Button btNotification;
+    private Button btNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,31 +36,24 @@ public class MainActivityValues extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btNotification = findViewById(R.id.bt_notification);
-        btNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String message = "Bubbles generated";
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(
-                        MainActivityValues.this
-                )
-                        .setSmallIcon(R.drawable.unnamed)
-                        .setContentTitle("New Notification")
-                        .setContentText(message)
-                        .setAutoCancel(true);
+        btNotification.setOnClickListener(v -> {
+            String message = "Bubbles generated";
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivityValues.this)
+                    .setSmallIcon(R.drawable.unnamed)
+                    .setContentTitle("New Notification")
+                    .setContentText(message)
+                    .setAutoCancel(true);
 
-                Intent intent = new Intent(MainActivityValues.this, Notification.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("message", message);
+            Intent intent = new Intent(MainActivityValues.this, Notification.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("message", message);
 
-                PendingIntent pendingIntent = PendingIntent.getActivity(MainActivityValues.this,
-                        0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                builder.setContentIntent(pendingIntent);
+            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivityValues.this,
+                    0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(pendingIntent);
 
-                NotificationManager notificationManager = (NotificationManager) getSystemService(
-                        Context.NOTIFICATION_SERVICE
-                );
-                notificationManager.notify(0, builder.build());
-            }
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(0, builder.build());
         });
 
         recyclerView = findViewById(R.id.recyclerview);
@@ -92,19 +82,18 @@ public class MainActivityValues extends AppCompatActivity {
                 recyclerView.setAdapter(fieldAdapter);
             }
 
-
             @Override
             public void onFailure(Call<Feeds> call, Throwable t) {
                 Toast.makeText(MainActivityValues.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("Error", t.getMessage());
             }
         });
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         FirebaseUser mAuth = FirebaseAuth.getInstance().getCurrentUser();
         if (mAuth == null) {
             Intent intent = new Intent(MainActivityValues.this, MainActivityLogin.class);
