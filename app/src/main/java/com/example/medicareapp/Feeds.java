@@ -11,7 +11,6 @@ public class Feeds {
     private int entry_id;
 
 
-
     public Feeds(String  created_at, int  field1, int field2, int entry_id) {
         this.created_at = created_at;
         this.field1 = field1;
