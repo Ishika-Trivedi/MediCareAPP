@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MediCareApp"
         tools:targetApi="q">
-        <activity android:name=".Notification" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"

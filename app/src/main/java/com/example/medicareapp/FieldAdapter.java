@@ -32,11 +32,15 @@ public class FieldAdapter extends RecyclerView.Adapter<FieldAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Feeds feed = feedsList.get(position);
+        String textColor;
         if ((feed.getField1()) >= 800) {
-            holder.bubble.setText("Bubble is not formed");
+            holder.bubble.setText("No Bubble");
+            android:textColor = "#FF03F303";
         } else {
-            holder.bubble.setText("Bubble is  formed");
+            holder.bubble.setText("Bubbles Formed");
+            android:textColor = "#FFEF1505";
         }
+
         if ((feed.getField2()) == 12) {
             holder.depth.setText("100%");
         }
@@ -76,6 +80,8 @@ public class FieldAdapter extends RecyclerView.Adapter<FieldAdapter.ViewHolder> 
         if ((feed.getField2()) == 0) {
             holder.depth.setText("0%");
         }
+
+        if((feed.getField2()) == )
     }
 
     @Override
