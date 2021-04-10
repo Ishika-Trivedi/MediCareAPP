@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,13 +33,10 @@ public class FieldAdapter extends RecyclerView.Adapter<FieldAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Feeds feed = feedsList.get(position);
-        String textColor;
         if ((feed.getField1()) >= 800) {
             holder.bubble.setText("No Bubble");
-            android:textColor = "#FF03F303";
         } else {
             holder.bubble.setText("Bubbles Formed");
-            android:textColor = "#FFEF1505";
         }
 
         if ((feed.getField2()) == 12) {
@@ -80,9 +78,8 @@ public class FieldAdapter extends RecyclerView.Adapter<FieldAdapter.ViewHolder> 
         if ((feed.getField2()) == 0) {
             holder.depth.setText("0%");
         }
-
-        if((feed.getField2()) == )
     }
+
 
     @Override
     public int getItemCount() {

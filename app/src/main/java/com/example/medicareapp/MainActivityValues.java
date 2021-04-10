@@ -1,19 +1,12 @@
 package com.example.medicareapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,33 +23,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivityValues extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Button btNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        btNotification = findViewById(R.id.bt_notification);
-        btNotification.setOnClickListener(v -> {
-            String message = "Bubbles generated";
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivityValues.this)
-                    .setSmallIcon(R.drawable.unnamed)
-                    .setContentTitle("New Notification")
-                    .setContentText(message)
-                    .setAutoCancel(true);
-
-            Intent intent = new Intent(MainActivityValues.this, Notification.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("message", message);
-
-            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivityValues.this,
-                    0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            builder.setContentIntent(pendingIntent);
-
-            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.notify(0, builder.build());
-        });
+        setContentView(R.layout.activity_mainvalues);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
