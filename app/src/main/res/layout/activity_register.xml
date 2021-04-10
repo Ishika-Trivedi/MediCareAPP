@@ -5,7 +5,7 @@
     android:id="@+id/registerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="64dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Create Account"
-        android:textColor="#FFFFFF"
+        android:textColor="#090909"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
@@ -29,7 +29,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/ubuntu_regular"
         android:text="Register to stay connected!!"
-        android:textColor="@color/colorTextSubtitle"
+        android:textColor="@color/black"
         android:textColorHint="@color/colorTextHint"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +161,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/ubuntu_regular"
         android:text="Already have an ACCOUNT? "
-        android:textColor="@color/colorTextSubtitle"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/registerBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
@@ -170,11 +170,11 @@
         android:id="@+id/clickLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
         android:fontFamily="@font/ubuntu_regular"
         android:text="Login"
-        android:textColor="#03A9F4"
+        android:textColor="#F12B1C"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
