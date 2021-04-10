@@ -29,7 +29,7 @@ public class MainActivityValues extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainvalues);
 
-        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
